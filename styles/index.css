@@ -1,0 +1,15 @@
+.rps-img {
+  height: 30%;
+  width: 30%;
+}
+
+.rps-btn {
+  border-radius: 50%;
+  height: 12em;
+  width: 12em;
+  transition: all 0.3s ease 0s;
+}
+
+.rps-btn:focus {
+  outline: 0;
+}

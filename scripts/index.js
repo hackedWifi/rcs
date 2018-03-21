@@ -19,7 +19,7 @@ function computerPlay() {
     return choices[random];
 }
 
-function playRound(player, computer) {
+function playRound(player, comp) {
     let computer = computerPlay();
     let win = 'You win.';
     let lost = 'You lost.';
