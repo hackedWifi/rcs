@@ -6,17 +6,25 @@
   font: inherit;
   vertical-align: baseline;
 }
-
+#rock {
+  background-color: #6dff68;
+}
+#paper {
+  background-color: #ff8b68;
+}
+#scissors {
+  background-color: #ff68b9;
+}
 h1 {
   font-size: 24px;
 }
-#rps-header {
-  height: 50px;
-  width: auto;
-  text-align: center;
-  padding: 10px;
-  margin: auto;
-}
+/* #rps-header { */
+  /* height: 50px; */
+  /* width: auto; */
+  /* text-align: center; */
+  /* padding: 10px; */
+  /* margin: auto; */
+/* } */
 .col {
   height: 50px;
 
@@ -25,22 +33,14 @@ h1 {
   height: 30%;
   width: 30%;
 }
-.btns-div {
-  width: auto;
-  margin: auto;
-  text-align: center;
-}
 
-.rps-btn {
-  margin:30px;
-}
 .rps-btn {
   border-radius: 50%;
   height: 12em;
   width: 12em;
   transition: all 0.3s ease 0s;
 }
-
+/*  */
 .rps-btn:focus {
   outline: 0;
 }
