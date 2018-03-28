@@ -1,8 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+h1 {
+  font-size: 24px;
+}
+#rps-header {
+  height: 50px;
+  width: auto;
+  text-align: center;
+  padding: 10px;
+  margin: auto;
+}
+.col {
+  height: 50px;
+
+}
 .rps-img {
   height: 30%;
   width: 30%;
 }
+.btns-div {
+  width: auto;
+  margin: auto;
+  text-align: center;
+}
 
+.rps-btn {
+  margin:30px;
+}
 .rps-btn {
   border-radius: 50%;
   height: 12em;
