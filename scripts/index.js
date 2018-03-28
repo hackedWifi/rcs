@@ -2,74 +2,76 @@
 var rock = document.querySelector('#rock');
 var paper = document.querySelector("#paper");
 var scissors = document.querySelector("#scissors");
+var divPlayerScore = document.querySelector(".pl-score");
+var divPcScore = document.querySelector(".pc-score");
+var divTieScore = document.querySelector(".tie-score");
+var rounds = 5;
+let playerScore = 0;
+let computerScore = 0;
+let tieScore = 0;
 
 
-
-// EVEN LISTENERS
-rock.addEventListener('click', () => alert(playRound('rock')));
-
-
+// EVEN LISTENERkS
+rock.addEventListener('click', () => playRound('rock'));
+paper.addEventListener('click', () => playRound('paper'));
+scissors.addEventListener('click',  () => playRound('scissors'));
 
 
 
 
 function computerPlay() {
-    const choices = ['rock', 'paper', 'scissors'];
-    const random = Math.floor(Math.random() * 3);
-    return choices[random];
+  const choices = ['rock', 'paper', 'scissors'];
+  const random = Math.floor(Math.random() * 3);
+  return choices[random];
 }
 
-function playRound(player, comp) {
-    let computer = computerPlay();
-    let win = 'You win.';
-    let lost = 'You lost.';
-    if (player === 'rock' && computer === 'scissors') {
-        return win;
-    } else if (player === 'paper' && computer === 'rock') {
-        return win;
-    } else if (player === 'scissors' && computer === 'paper') {
-        return win;
-    } else if (player === 'rock' && computer === 'paper') {
-        return lost;
-    } else if (player === 'paper' && computer === 'scissors') {
-        return lost;
-    } else if (player === 'scissors' && computer === 'rock') {
-        return lost;
-    } else {
-        return 'It is a tie ';
-    }
+function playRound(player) {
+  let computer = computerPlay();
+  if((playerScore === rounds)
+   || (computerScore === rounds)
+    ||(tieScore === rounds)){
+
+
+    resetGame();
+    gameOver();
+  }
+  if ((player === 'rock' && computer === 'scissors') ||
+    (player === 'paper' && computer === 'rock') ||
+    (player === 'scissors' && computer === 'paper')) {
+    ++playerScore;
+    divPlayerScore.textContent = `Player score: ${playerScore}`;
+    return 'win';
+  } else if ((player === 'rock' && computer === 'paper') ||
+    (player === 'paper' && computer === 'scissors') ||
+    (player === 'scissors' && computer === 'rock')) {
+    ++computerScore;
+    divPcScore.textContent = `Computer Score: ${computerScore}`;
+    return 'lost';
+  } else {
+    ++tieScore;
+    divTieScore.textContent = `Tie score: ${tieScore}`;
+    return 'tie';
+  }
 }
 
-function game() {
-    let count = 0;
-    let playerScore = 0;
-    let computerScore = 0;
-    let result = 0;
-    let computer = computerPlay().toLowerCase();
-    let playerResponse;
-    while (count < 5) {
-        playerResponse = window.prompt('Please enter your selection').toLowerCase();
-        result = playRound(playerResponse, computer);
+function gameOver(){
+  if(playerScore > computerScore){
+    alert('You win');
 
+  }
+  else if(computerScore > playerScore){
+    alert('Computer has won!!')
+  }
+  else {
+    alert('It is a tie');
+  }
+}
 
-        if (playerResponse !== 'rock' && playerResponse !== 'scissors' && playerResponse !== 'paper') {
-
-            window.alert("Please enter [rock]");
-        }
-        if (result === 'You win') {
-            playerScore++;
-            console.log(result + ' Player score is: ' + playerScore);
-        } else if (result === 'You lost') {
-            computerScore++;
-            console.log(result + ' Computer score is: ' + computerScore);
-        } else if (result === 'It is a tie ') {
-            console.log('It is a tie');
-        }
-
-        count++;
-    }
-    return playerScore > computerScore ? "Player score: " + playerScore : "Computer score: " + computerScore;
-
-
-
+function resetGame(){
+  playerScore = 0;
+  computerScore = 0;
+  tieScore = 0;
+  divPcScore.textContent =`Computer score: ${computerScore}`;
+  divPlayerScore.textContent = `Player score: ${playerScore}`;
+  divTieScore.textContent = `Tie score: ${tieScore}`;
 }
