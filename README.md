@@ -1,2 +1,3 @@
 # rock-paper-scissors
-a project from The ODIN project that teaches the use of listeners.
+A UI version of a simple rock, paper, and scissors game.
+
